@@ -1,0 +1,63 @@
+import json
+
+file = open("js_file.txt","r")
+contents = json.load(file)
+dict_end = False
+
+user_input = input("Enter key")
+
+key_list = ["glossary", "GlossDiv", "GlossList", "GlossEntry", "ID", "SortAs", "GlossTerm", "Acronym", "Abbrev",
+            "GlossDef", "para", "GlossSeeAlso", "GlossSee"]
+
+subdict = contents
+
+for k in key_list:
+    if k == "ID":
+        new_dict = subdict
+        break
+    subdict = subdict[k]
+    if k == user_input:
+        dict_end = True
+        break
+
+if dict_end:
+    print(subdict)
+else:
+    print(new_dict[user_input])
+
+
+#Doesn't work for duplicate values and for 'para' key
+
+
+
+
+
+**********js_file.txt***********
+{
+    "glossary": 
+	{
+        "title": "example glossary",
+		"GlossDiv": 
+		{
+            "title": "S",
+			"GlossList": 
+			{
+                "GlossEntry": 
+				{
+                    "ID": "SGML",
+					"SortAs": "SGML",
+					"GlossTerm": "Standard Generalized Markup Language",
+					"Acronym": "SGML",
+					"Abbrev": "ISO 8879:1986",
+					"GlossDef": 
+					{
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso": ["GML", "XML"]
+                    },
+					"GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
+********************************
