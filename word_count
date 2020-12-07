@@ -1,0 +1,10 @@
+phrase = input("enter")
+dictionary ={}
+
+for words in phrase.split():
+    word = words
+    if word not in dictionary:
+        dictionary[word]=1
+    else:
+        dictionary[word] += 1
+print(dictionary)
