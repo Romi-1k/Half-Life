@@ -1,0 +1,16 @@
+import json
+
+f = open("js_file.txt")
+contents = json.load(f)
+
+
+def key_finder(key, dictionary):
+    for k, v in dictionary.items():
+        if k == key:
+            yield v
+        elif isinstance(v, dict):
+            for output in key_finder(key, v):
+                yield output
+
+print(list(key_finder(input("Enter key"), contents)))
+
