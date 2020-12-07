@@ -1,0 +1,8 @@
+phrase = input("Enter a phrase")
+score = 0
+
+for word in phrase.split():
+    if word.lower() == "the":
+        score += 1
+
+print("The word 'the' occurs "+str(score)+" times")
