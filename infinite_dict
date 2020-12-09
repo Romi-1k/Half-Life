@@ -1,0 +1,17 @@
+
+dictionary ={}
+limiter = False
+
+print("Enter 'stop' to exit dictionary when done\n")
+
+
+while not(limiter):
+    key = input("Enter key\n")
+    if key == "stop":
+        limiter = True
+        continue
+    value = input("Enter the corresponding value for the key\n")
+
+    dictionary[key] = value
+
+print(dictionary)
